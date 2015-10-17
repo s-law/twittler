@@ -13,7 +13,7 @@
     <main>
       <aside>
         <div id="settings">
-          <button id="toggleRefresh"></button>
+          <button id="toggleRefresh">Auto-refresh: OFF</button>
         </div>
         <div id="toTop"></div>
       </aside>
@@ -35,6 +35,9 @@
       $(document).ready(function(){
         // function changed to reflect new structure 
         var $didits = $('#didits');
+        var $toggleRefresh = $('#toggleRefresh');
+
+        var autorefresh = false;
         $didits.html('');
 
         function loadDidits() {
@@ -49,6 +52,18 @@
         }
 
         loadDidits();
+
+        $toggleRefresh.on('click', function() {
+          $('#refreshDidits').slideToggle();
+          if (!autorefresh) {
+            autorefresh = true;
+            $toggleRefresh.text('Auto-refresh: ON');
+          }
+          else {
+            autorefresh = false;
+            $toggleRefresh.text('Auto-refresh: OFF')
+          }
+        })
 
         $('#refreshDidits').on('click', function() {
           $didits.html('');
