@@ -18,7 +18,7 @@
         <div id="toTop"></div>
       </aside>
       <section id="content">
-        <button id="refreshDidits"></button>
+        <button id="refreshDidits">Click here to refresh your didit stream</button>
         <div id="didits"></div>
       </section>
       <section id="sidebar">
@@ -37,14 +37,23 @@
         var $didits = $('#didits');
         $didits.html('');
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="didit"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($didits);
-          index -= 1;
+        function loadDidits() {
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div class="didit"></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $tweet.appendTo($didits);
+            index -= 1;
+          }
         }
+
+        loadDidits();
+
+        $('#refreshDidits').on('click', function() {
+          $didits.html('');
+          loadDidits();
+        })
 
       });
 
