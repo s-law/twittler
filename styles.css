@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font: medium 'Roboto', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -47,4 +48,4 @@ table {
 	border-spacing: 0;
 }
 
-//css reset ends here; custom css begins here
+//css reset ends here; custom css begins here	
