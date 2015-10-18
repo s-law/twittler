@@ -64,7 +64,6 @@ $(document).ready(function() {
     }
     else {
       $refreshDidits.text('Load new didIts from ' + userSelect);
-      $refreshDidits.removeClass('hidden');
       $whoseDidits.html('<h3>Currently viewing: ' + userSelect + '\'s didIts').removeClass('hidden');
     }
     loadDidits(userSelect);
