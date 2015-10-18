@@ -110,7 +110,7 @@ div.didit {
 	background-color: white;
 }
 
-body.nightmode, aside.nightmode, section.nightmode, div.didits.nightmode, div.didit.nightmode, button.nightmode, .watches.nightmode {
+body.nightmode, aside#utility.nightmode, section#content.nightmode, section#sidebar.nightmode, div.didits.nightmode, div.didit.nightmode, button.nightmode, .watches.nightmode {
 	color: darkgrey;
   background-color: black;
 }
