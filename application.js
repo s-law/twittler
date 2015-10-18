@@ -104,7 +104,7 @@ $(document).ready(function() {
     filterHelper(userSelect);
   });
 
-  //event handler for username filtering by didit
+  // event handler for username filtering by didit
   $('#didits').on('click', '.didit', function() {
     $resumeDidits.removeClass('hidden');
     var classNames = this.className.split(' ');
@@ -112,12 +112,17 @@ $(document).ready(function() {
     filterHelper(userSelect);
   });
 
-  //event handler for termination of username filtering
+  // event handler for termination of username filtering
   $resumeDidits.on('click', function() {
     userSelect = undefined;
     $('#resumeDidits, #whoseDidits').addClass('hidden');
     $refreshDidits.text('Click to refresh stream');
     loadDidits();
+  });
+
+  // event handler for jumping to the top of the page
+  $('#goTop').on('click', function() {
+    $('body').animate({scrollTop: 0 }, '100');
   });
 
 });
