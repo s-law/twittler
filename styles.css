@@ -124,6 +124,7 @@ em {
 }
 
 .selected {
+	font-style: italic;
 	font-weight: bold;
 }
 
