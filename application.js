@@ -4,6 +4,7 @@ $(document).ready(function() {
   var $toggleRefresh = $('#toggleRefresh');
   var $refreshDidits = $('#refreshDidits');
   var $resumeDidits = $('#resumeDidits');
+  var $whoseDidits = $('#whoseDidits');
   var $toggleNight = $('#toggleNight');
   var $loginout = $('#logInOut');
   
@@ -57,8 +58,14 @@ $(document).ready(function() {
   }
 
   function filterHelper(userSelect) {
-    $refreshDidits.text('Load new didIts from ' + userSelect);
-    $('#whoseDidits').html('<h3>Currently viewing: ' + userSelect + '\'s didIts').removeClass('hidden');
+    if (visitor = userSelect) {
+      $refreshDidits.addClass('hidden');
+      $whoseDidits.html('<h3>Your didIts').removeClass('hidden');
+    }
+    else {
+      $refreshDidits.text('Load new didIts from ' + userSelect);
+      $whoseDidits.html('<h3>Currently viewing: ' + userSelect + '\'s didIts').removeClass('hidden');
+    }
     loadDidits(userSelect);
   }
 
@@ -149,7 +156,12 @@ $(document).ready(function() {
     
       if (message) {
         writeTweet(message);
-        loadDidits();
+        if (visitor == userSelect) {
+          filterHelper(visitor);
+        }
+        else {
+          loadDidits();
+        }
       }
     }
   });
