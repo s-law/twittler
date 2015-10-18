@@ -3,6 +3,7 @@ $(document).ready(function() {
   var $watched = $('#watched')
   var $toggleRefresh = $('#toggleRefresh');
   var $refreshDidits = $('#refreshDidits');
+  var $resumeDidits = $('#resumeDidits');
   var $toggleNight = $('#toggleNight');
   var users = [];
   var userSelect;
@@ -92,8 +93,16 @@ $(document).ready(function() {
 
   // event handler for username filtering
   $('.watches').on('click', 'li', function() {
+    $resumeDidits.removeClass('hidden');
     userSelect = this.id;
     loadDidits(userSelect);
+  });
+
+  //event handler for termination of username filtering
+  $resumeDidits.on('click', function() {
+    userSelect = undefined;
+    $resumeDidits.addClass('hidden');
+    loadDidits();
   });
 
 });
