@@ -171,7 +171,14 @@ $(document).ready(function() {
   $loginout.on('click', function() {
     if (!logInFlag) {
       visitor = prompt('Please enter your username:');
-      if (visitor) {
+      var userCheckArr = users.map(function(user) {
+        return user.toLowerCase();
+      });
+
+      if (userCheckArr.indexOf(visitor.toLowerCase()) != -1) {
+        alert('That username is already taken!');
+      }
+      else if (visitor) {
         logInFlag = true;
         $loginout.text('Logged in as: ' + visitor);
       }
