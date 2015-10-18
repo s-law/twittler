@@ -32,7 +32,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	font: medium 'Roboto', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -50,4 +49,19 @@ table {
 	border-spacing: 0;
 }
 
-//css reset ends here; custom css begins here
+/* end css reset; begin custom css */
+
+body {
+	font: medium 'Roboto', sans-serif;
+}
+
+div.didit {
+	width: 400px;
+	padding: 10px;
+	border: 1px solid #b0b0b0;
+	margin: 5px 0;
+}
+
+.diditByline {
+	font-size: 70%;
+}

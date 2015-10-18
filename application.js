@@ -12,7 +12,7 @@ $(document).ready(function() {
       var tweet = streams.home[index];
       var tweTime = tweet.created_at;
       var tweetElement = '<div class="didit" title=\"' + tweTime + '\"></div>'
-      var tweetFormatted = tweet.message + '<br />' + '@' + tweet.user + ' didIt ' + $.timeago(tweTime);
+      var tweetFormatted = '@' + tweet.user + '<br />' + tweet.message + '<br /><span class="diditByline">' + tweet.user + ' didIt ' + $.timeago(tweTime) + '</span>';
 
       var $tweet = $(tweetElement);
       $tweet.html(tweetFormatted);
