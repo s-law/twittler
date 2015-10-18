@@ -5,6 +5,7 @@ $(document).ready(function() {
   var $refreshDidits = $('#refreshDidits');
   var $resumeDidits = $('#resumeDidits');
   var $toggleNight = $('#toggleNight');
+  var $logout = $('#logout');
   
   var users = [];
   var userSelect;
@@ -137,15 +138,24 @@ $(document).ready(function() {
   $('#writeDidit').on('click', function() {
     if (!visitor) {
       visitor = prompt('Who are you?', 'SueDeNonimas');
-      streams.users[visitor] = [];
     }
     if (visitor) {
+      $logout.removeClass('hidden');
+      if (!streams.users[visitor]) {
+        streams.users[visitor] = [];
+      }
       var message = prompt('What did you do now?');
     }
     if (message) {
       writeTweet(message);
       loadDidits();
     }
+  });
+
+  // event handler for logging out of didIt
+  $logout.on('click', function() {
+    visitor = '';
+    $logout.addClass('hidden');
   });
 
 });
