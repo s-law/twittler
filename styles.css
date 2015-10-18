@@ -53,10 +53,13 @@ table {
 
 body {
 	font: medium 'Roboto', sans-serif;
+	color: black;
+	background-color: lightsteelblue;
 }
 
 header {
 	text-align: right;
+	color: white;
 }
 
 main {
@@ -82,6 +85,11 @@ aside#utility, section#content, section#sidebar, div.didit {
 	padding: 10px;
 	margin: 5px;
 	border: 1px solid #b0b0b0;
+	background-color: #f0f0f0;
+}
+
+aside button {
+	width: 120px;
 }
 
 button#refreshDidits {
@@ -90,6 +98,7 @@ button#refreshDidits {
 
 div.didit {
 	width: 470px;
+	background-color: white;
 }
 
 .diditByline {
@@ -98,4 +107,10 @@ div.didit {
 
 .watches {
 	margin: 5px 0;
+	background-color: white;
+}
+
+body.nightmode, aside.nightmode, section.nightmode, div.didits.nightmode, div.didit.nightmode, button.nightmode, .watches.nightmode {
+	color: darkgrey;
+  background-color: black;
 }
