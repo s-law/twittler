@@ -58,12 +58,13 @@ $(document).ready(function() {
   }
 
   function filterHelper(userSelect) {
-    if (visitor = userSelect) {
+    if (visitor == userSelect) {
       $refreshDidits.addClass('hidden');
       $whoseDidits.html('<h3>Your didIts').removeClass('hidden');
     }
     else {
       $refreshDidits.text('Load new didIts from ' + userSelect);
+      $refreshDidits.removeClass('hidden');
       $whoseDidits.html('<h3>Currently viewing: ' + userSelect + '\'s didIts').removeClass('hidden');
     }
     loadDidits(userSelect);
@@ -160,7 +161,7 @@ $(document).ready(function() {
           filterHelper(visitor);
         }
         else {
-          loadDidits();
+          $resumeDidits.click();
         }
       }
     }
