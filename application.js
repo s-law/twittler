@@ -5,24 +5,28 @@ $(document).ready(function() {
   var $refreshDidits = $('#refreshDidits');
   var $toggleNight = $('#toggleNight');
   var users = [];
+  var userSelect;
 
   var autorefresh = false;
   var nightmode = false;
   var diditAutoRefresh;
 
-  function loadDidits() {
+  function loadDidits(userSelected) {
     $didits.html('');
     var index = streams.home.length - 1;
     while(index >= 0) {
       var tweet = streams.home[index];
       var tweTime = tweet.created_at;
-      var tweetElement = '';
+      var tweetElement = tweet.user +  '" title=\"' + tweTime + '\"></div>';
+
+      if (userSelected && userSelected !== tweet.user) {
+        tweetElement = 'hidden ' + tweetElement;
+      }
       if (nightmode) {
-        tweetElement = '<div class="didit nightmode ' + tweet.user +  '" title=\"' + tweTime + '\"></div>'
+        tweetElement = 'nightmode ' + tweetElement; 
       }
-      else {
-        tweetElement = '<div class="didit ' + tweet.user +  '" title=\"' + tweTime + '\"></div>'
-      }
+      
+      tweetElement = '<div class="didit ' + tweetElement;
       var tweetFormatted = '@' + tweet.user + ':<br />' + tweet.message + '<br /><span class="diditByline">' + $.timeago(tweTime) + '</span>';
 
       var $tweet = $(tweetElement);
@@ -66,7 +70,7 @@ $(document).ready(function() {
   });
 
   $refreshDidits.on('click', function() {
-    loadDidits();
+    loadDidits(userSelect);
   });
 
   $toggleNight.on('click', function() {
@@ -79,6 +83,11 @@ $(document).ready(function() {
       nightmode = false;
       $toggleNight.text('Night mode: OFF');
     }
+  });
+
+  $('.watches').on('click', 'li', function() {
+    userSelect = this.id;
+    loadDidits(userSelect);
   });
 
 });
