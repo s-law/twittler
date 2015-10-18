@@ -11,6 +11,7 @@ $(document).ready(function() {
   var autoRefreshFlag = false;
   var nightModeFlag = false;
   var diditAutoRefresh;
+  window.visitor = '';
 
   function loadDidits(userSelected) {
     $didits.html('');
@@ -127,6 +128,24 @@ $(document).ready(function() {
   // event handler for jumping to the top of the page
   $('#goTop').on('click', function() {
     $('body').animate({scrollTop: 0 }, '100');
+  });
+
+  /* event handler for writing a new didIt. Can you believe I wrote this
+  after a handler for scrolling to the top of the page? It's as if I thought
+  people didn't have "home" keys on their keyboard. *Glares at MacBook Air
+  keyboard* */
+  $('#writeDidit').on('click', function() {
+    if (!visitor) {
+      visitor = prompt('Who are you?', 'SueDeNonimas');
+      streams.users[visitor] = [];
+    }
+    if (visitor) {
+      var message = prompt('What did you do now?');
+    }
+    if (message) {
+      writeTweet(message);
+      loadDidits();
+    }
   });
 
 });
