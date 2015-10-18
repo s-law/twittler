@@ -54,3 +54,22 @@ table {
 body {
 	font: medium 'Roboto', sans-serif;
 }
+
+main {
+	width: 946px;
+}
+
+aside#utility {
+	width: 150px;
+	float: left;
+}
+
+section#content {
+	width: 500px;
+	display: inline-block;
+}
+
+section#sidebar {
+	width: 200px;
+	float: right;
+}
