@@ -95,13 +95,16 @@ $(document).ready(function() {
   $('.watches').on('click', 'li', function() {
     $resumeDidits.removeClass('hidden');
     userSelect = this.id;
+    $refreshDidits.text('Click to refresh ' + userSelect + '\'s stream');
+    $('#whoseDidits').html('<h3>Currently viewing: ' + userSelect + '\'s stream').removeClass('hidden');
     loadDidits(userSelect);
   });
 
   //event handler for termination of username filtering
   $resumeDidits.on('click', function() {
     userSelect = undefined;
-    $resumeDidits.addClass('hidden');
+    $('#resumeDidits, #whoseDidits').addClass('hidden');
+    $refreshDidits.text('Click to refresh stream');
     loadDidits();
   });
 
