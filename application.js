@@ -63,11 +63,11 @@ $(document).ready(function() {
       $toggleRefresh.text('Auto-refresh: OFF');
       clearInterval(diditAutoRefresh);
     }
-  })
+  });
 
   $refreshDidits.on('click', function() {
     loadDidits();
-  })
+  });
 
   $toggleNight.on('click', function() {
     $('body, aside, section, div.didit, div.didits, button, .watches').toggleClass('nightmode');
@@ -79,7 +79,6 @@ $(document).ready(function() {
       nightmode = false;
       $toggleNight.text('Night mode: OFF');
     }
-
-  })
+  });
 
 });
