@@ -79,3 +79,15 @@ aside#utility, section#content, section#sidebar, div.didit {
 	margin: 5px;
 	border: 1px solid #b0b0b0;
 }
+
+button#refreshDidits {
+	width: 100%;
+}
+
+div.didit {
+	width: 470px;
+}
+
+.diditByline {
+	font-size: 70%;
+}
