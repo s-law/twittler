@@ -5,11 +5,11 @@ $(document).ready(function() {
   var $refreshDidits = $('#refreshDidits');
   var $resumeDidits = $('#resumeDidits');
   var $toggleNight = $('#toggleNight');
+  
   var users = [];
   var userSelect;
-
-  var autorefresh = false;
-  var nightmode = false;
+  var autoRefreshFlag = false;
+  var nightModeFlag = false;
   var diditAutoRefresh;
 
   function loadDidits(userSelected) {
@@ -23,7 +23,7 @@ $(document).ready(function() {
       if (userSelected && userSelected !== tweet.user) {
         tweetElement = 'hidden ' + tweetElement;
       }
-      if (nightmode) {
+      if (nightModeFlag) {
         tweetElement = 'nightmode ' + tweetElement; 
       }
       
@@ -65,8 +65,8 @@ $(document).ready(function() {
   // event handler for auto-refresh toggle. refresh interval of 15 seconds.
   $toggleRefresh.on('click', function() {
     $refreshDidits.toggleClass('hidden');
-    if (!autorefresh) {
-      autorefresh = true;
+    if (!autoRefreshFlag) {
+      autoRefreshFlag = true;
       $toggleRefresh.text('Auto-refresh: ON');
       $toggleRefresh.prop('title', 'I can load didIts on my own, tyvm');
       diditAutoRefresh = setInterval(function() {
@@ -74,7 +74,7 @@ $(document).ready(function() {
       }, 15000);
     }
     else {
-      autorefresh = false;
+      autoRefreshFlag = false;
       $toggleRefresh.text('Auto-refresh: OFF');
       $toggleRefresh.prop('title', 'Clicking to load new didIts is tiring');
       clearInterval(diditAutoRefresh);
@@ -89,13 +89,13 @@ $(document).ready(function() {
   // event handler for night mode toggle
   $toggleNight.on('click', function() {
     $('body, aside, section, div.didit, div.didits, button, .watches').toggleClass('nightmode');
-    if(!nightmode) {
-      nightmode = true;
+    if(!nightModeFlag) {
+      nightModeFlag = true;
       $toggleNight.text('Night mode: ON');
       $toggleNight.prop('title', 'Make reading didIts more painful at night');
     }
     else {
-      nightmode = false;
+      nightModeFlag = false;
       $toggleNight.text('Night mode: OFF');
       $toggleNight.prop('title', 'Make reading didIts less painful at night');
     }
