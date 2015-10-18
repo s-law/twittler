@@ -37,7 +37,7 @@ $(document).ready(function() {
     }
   }
 
-  function loadWatched () {
+  function loadWatched() {
     for(var name in streams.users) {
       users.push(name);
     }
@@ -51,6 +51,12 @@ $(document).ready(function() {
       $user.html(user);
       $user.appendTo($watched);
     });
+  }
+
+  function filterHelper(userSelect) {
+    $refreshDidits.text('Click to refresh ' + userSelect + '\'s stream');
+    $('#whoseDidits').html('<h3>Currently viewing: ' + userSelect + '\'s stream').removeClass('hidden');
+    loadDidits(userSelect);
   }
 
   loadDidits();
@@ -91,13 +97,19 @@ $(document).ready(function() {
     }
   });
 
-  // event handler for username filtering
+  // event handler for username filtering by watcher panel
   $('.watches').on('click', 'li', function() {
     $resumeDidits.removeClass('hidden');
     userSelect = this.id;
-    $refreshDidits.text('Click to refresh ' + userSelect + '\'s stream');
-    $('#whoseDidits').html('<h3>Currently viewing: ' + userSelect + '\'s stream').removeClass('hidden');
-    loadDidits(userSelect);
+    filterHelper(userSelect);
+  });
+
+  //event handler for username filtering by didit
+  $('#didits').on('click', '.didit', function() {
+    $resumeDidits.removeClass('hidden');
+    var classNames = this.className.split(' ');
+    userSelect = classNames[classNames.length - 1];
+    filterHelper(userSelect);
   });
 
   //event handler for termination of username filtering
