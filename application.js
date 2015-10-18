@@ -60,7 +60,9 @@ $(document).ready(function() {
     if (!autorefresh) {
       autorefresh = true;
       $toggleRefresh.text('Auto-refresh: ON');
-      diditAutoRefresh = setInterval(loadDidits, 15000);
+      diditAutoRefresh = setInterval(function() {
+        loadDidits(userSelect);
+      }, 15000);
     }
     else {
       autorefresh = false;
