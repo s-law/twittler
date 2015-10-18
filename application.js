@@ -68,6 +68,7 @@ $(document).ready(function() {
     if (!autorefresh) {
       autorefresh = true;
       $toggleRefresh.text('Auto-refresh: ON');
+      $toggleRefresh.prop('title', 'I can load didIts on my own, tyvm');
       diditAutoRefresh = setInterval(function() {
         loadDidits(userSelect);
       }, 15000);
@@ -75,6 +76,7 @@ $(document).ready(function() {
     else {
       autorefresh = false;
       $toggleRefresh.text('Auto-refresh: OFF');
+      $toggleRefresh.prop('title', 'Clicking to load new didIts is tiring');
       clearInterval(diditAutoRefresh);
     }
   });
@@ -90,10 +92,12 @@ $(document).ready(function() {
     if(!nightmode) {
       nightmode = true;
       $toggleNight.text('Night mode: ON');
+      $toggleNight.prop('title', 'Make reading didIts more painful at night');
     }
     else {
       nightmode = false;
       $toggleNight.text('Night mode: OFF');
+      $toggleNight.prop('title', 'Make reading didIts less painful at night');
     }
   });
 
