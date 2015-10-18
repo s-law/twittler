@@ -66,21 +66,6 @@ header {
 	padding: 10px 0 5px 0;
 }
 
-aside#utility {
-	width: 150px;
-	float: left;
-}
-
-section#content {
-	width: 500px;
-	display: inline-block;
-}
-
-section#sidebar {
-	width: 200px;
-	float: right;
-}
-
 aside#utility, section#content, section#sidebar, div.didit, .watches {
 	padding: 10px;
 	margin: 5px;
@@ -89,8 +74,19 @@ aside#utility, section#content, section#sidebar, div.didit, .watches {
 	background-color: #f0f0f0;
 }
 
+aside#utility {
+	margin: 5px 5px 5px 10px;
+	width: 150px;
+	float: left;
+}
+
 aside button {
 	width: 120px;
+}
+
+section#content {
+	width: 500px;
+	display: inline-block;
 }
 
 #content button {
@@ -106,9 +102,20 @@ div.didit {
 	font-size: 70%;
 }
 
+section#sidebar {
+	width: 200px;
+	display: inline-block;
+	position: fixed;
+}
+
 .watches {
 	margin: 5px 0;
 	background-color: white;
+}
+
+#goTop {
+	text-align: center;
+	font-size: small;
 }
 
 body.nightmode, aside#utility.nightmode, section#content.nightmode, section#sidebar.nightmode, div.didits.nightmode, div.didit.nightmode, button.nightmode, .watches.nightmode {
