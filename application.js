@@ -27,9 +27,7 @@ $(document).ready(function() {
     for(var name in streams.users) {
       users.push(name);
     }
-    users.sort(function (a, b) {
-      return a - b;
-    })
+    users = users.sort();
 
     $watched.html('');
     users.forEach(function(user) {
