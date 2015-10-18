@@ -55,6 +55,10 @@ body {
 	font: medium 'Roboto', sans-serif;
 }
 
+header {
+	text-align: right;
+}
+
 main {
 	width: 946px;
 }
@@ -90,4 +94,8 @@ div.didit {
 
 .diditByline {
 	font-size: 70%;
+}
+
+.watches {
+	margin: 5px 0;
 }
