@@ -55,13 +55,39 @@ body {
 	font: medium 'Roboto', sans-serif;
 }
 
-div.didit {
-	width: 400px;
+aside#utility, div.didits, div.didit {
 	padding: 10px;
+	margin: 5px;
+}
+
+aside#utility {
+	width: 150px;
+	float: left;
+}
+
+section#content {
+	width: 500px;
+	display: inline-block;
+}
+
+section#sidebar {
+	width: 200px;
+	float: right;
+}
+
+button#refreshDidits {
+	width: 100%;
+}
+
+div.didit {
+	width: 470px;
 	border: 1px solid #b0b0b0;
-	margin: 5px 0;
 }
 
 .diditByline {
 	font-size: 70%;
+}
+
+em {
+	font-style: italic;
 }
