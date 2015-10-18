@@ -9,7 +9,8 @@
   </head>
   <body>
     <header>
-      <!-- wordmark etc. go here -->
+      <h1>didIt</h1>
+      <h2><em>Now</em> what did you do?</h2>
     </header>
     <main>
       <aside>
@@ -47,8 +48,8 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var tweTime = tweet.created_at;
-            var tweetElement = '<div class="didit" title="' + tweTime + '\"></div>'
-            var tweetFormatted = tweet.message + '<br />' + '@' + tweet.user + ' didit ' + $.timeago(tweTime);
+            var tweetElement = '<div class="didit" title=\"' + tweTime + '\"></div>'
+            var tweetFormatted = tweet.message + '<br />' + '@' + tweet.user + ' didIt ' + $.timeago(tweTime);
 
             var $tweet = $(tweetElement);
             $tweet.html(tweetFormatted);
