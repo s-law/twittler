@@ -54,8 +54,8 @@ $(document).ready(function() {
   }
 
   function filterHelper(userSelect) {
-    $refreshDidits.text('Click to refresh ' + userSelect + '\'s stream');
-    $('#whoseDidits').html('<h3>Currently viewing: ' + userSelect + '\'s stream').removeClass('hidden');
+    $refreshDidits.text('Load new didIts from ' + userSelect);
+    $('#whoseDidits').html('<h3>Currently viewing: ' + userSelect + '\'s didIts').removeClass('hidden');
     loadDidits(userSelect);
   }
 
@@ -116,7 +116,7 @@ $(document).ready(function() {
   $resumeDidits.on('click', function() {
     userSelect = undefined;
     $('#resumeDidits, #whoseDidits').addClass('hidden');
-    $refreshDidits.text('Click to refresh stream');
+    $refreshDidits.text('Load new didIts');
     loadDidits();
   });
 
