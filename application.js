@@ -55,6 +55,7 @@ $(document).ready(function() {
   loadDidits();
   loadWatched();
 
+  // event handler for auto-refresh toggle. refresh interval of 15 seconds.
   $toggleRefresh.on('click', function() {
     $refreshDidits.toggleClass('hidden');
     if (!autorefresh) {
@@ -71,10 +72,12 @@ $(document).ready(function() {
     }
   });
 
+  // event handler for manual refresh of stream
   $refreshDidits.on('click', function() {
     loadDidits(userSelect);
   });
 
+  // event handler for night mode toggle
   $toggleNight.on('click', function() {
     $('body, aside, section, div.didit, div.didits, button, .watches').toggleClass('nightmode');
     if(!nightmode) {
@@ -87,6 +90,7 @@ $(document).ready(function() {
     }
   });
 
+  // event handler for username filtering
   $('.watches').on('click', 'li', function() {
     userSelect = this.id;
     loadDidits(userSelect);
