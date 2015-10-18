@@ -48,3 +48,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* end css reset; begin custom css */
+
+body {
+	font: medium 'Roboto', sans-serif;
+}
