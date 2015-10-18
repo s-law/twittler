@@ -169,6 +169,7 @@ $(document).ready(function() {
         logInFlag = false;
         visitor = '';
         $loginout.text('Log In');
+        $resumeDidits.click();
       }
     }
   });
