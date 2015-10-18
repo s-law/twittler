@@ -67,7 +67,7 @@ $(document).ready(function() {
     $refreshDidits.toggleClass('hidden');
     if (!autoRefreshFlag) {
       autoRefreshFlag = true;
-      $toggleRefresh.text('Auto-refresh: ON');
+      $toggleRefresh.text('Auto-load: ON');
       $toggleRefresh.prop('title', 'I can load didIts on my own, tyvm');
       diditAutoRefresh = setInterval(function() {
         loadDidits(userSelect);
@@ -75,7 +75,7 @@ $(document).ready(function() {
     }
     else {
       autoRefreshFlag = false;
-      $toggleRefresh.text('Auto-refresh: OFF');
+      $toggleRefresh.text('Auto-load: OFF');
       $toggleRefresh.prop('title', 'Clicking to load new didIts is tiring');
       clearInterval(diditAutoRefresh);
     }
