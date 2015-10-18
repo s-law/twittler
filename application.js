@@ -91,12 +91,12 @@ $(document).ready(function() {
     $('body, aside, section, div.didit, div.didits, button, .watches').toggleClass('nightmode');
     if(!nightModeFlag) {
       nightModeFlag = true;
-      $toggleNight.text('Night mode: ON');
+      $toggleNight.text('Night Mode: ON');
       $toggleNight.prop('title', 'Make reading didIts more painful at night');
     }
     else {
       nightModeFlag = false;
-      $toggleNight.text('Night mode: OFF');
+      $toggleNight.text('Night Mode: OFF');
       $toggleNight.prop('title', 'Make reading didIts less painful at night');
     }
   });
