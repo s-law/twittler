@@ -5,12 +5,13 @@ $(document).ready(function() {
   var $refreshDidits = $('#refreshDidits');
   var $resumeDidits = $('#resumeDidits');
   var $toggleNight = $('#toggleNight');
-  var $logout = $('#logout');
+  var $loginout = $('#logInOut');
   
   var users = [];
   var userSelect;
   var autoRefreshFlag = false;
   var nightModeFlag = false;
+  var logInFlag = false;
   var diditAutoRefresh;
   window.visitor = '';
 
@@ -137,25 +138,39 @@ $(document).ready(function() {
   keyboard* */
   $('#writeDidit').on('click', function() {
     if (!visitor) {
-      visitor = prompt('Who are you?', 'SueDeNonimas');
+      alert('You are not currently logged in!');
     }
-    if (visitor) {
-      $logout.removeClass('hidden');
+    else {
       if (!streams.users[visitor]) {
         streams.users[visitor] = [];
       }
+    
       var message = prompt('What did you do now?');
-    }
-    if (message) {
-      writeTweet(message);
-      loadDidits();
+    
+      if (message) {
+        writeTweet(message);
+        loadDidits();
+      }
     }
   });
 
   // event handler for logging out of didIt
-  $logout.on('click', function() {
-    visitor = '';
-    $logout.addClass('hidden');
+  $loginout.on('click', function() {
+    if (!logInFlag) {
+      visitor = prompt('Please enter your username:');
+      if (visitor) {
+        logInFlag = true;
+        $loginout.text('Logged in as: ' + visitor);
+      }
+    }
+    else {
+      var areYouSure = confirm('Select \'OK\' to log out');
+      if (areYouSure) {
+        logInFlag = false;
+        visitor = '';
+        $loginout.text('Log In');
+      }
+    }
   });
 
 });
