@@ -52,7 +52,7 @@ $(document).ready(function() {
   loadWatched();
 
   $toggleRefresh.on('click', function() {
-    $refreshDidits.slideToggle();
+    $refreshDidits.toggleClass('hidden');
     if (!autorefresh) {
       autorefresh = true;
       $toggleRefresh.text('Auto-refresh: ON');

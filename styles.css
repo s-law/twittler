@@ -115,6 +115,10 @@ body.nightmode, aside#utility.nightmode, section#content.nightmode, section#side
   background-color: black;
 }
 
+.hidden {
+	display: none;
+}
+
 em {
 	font-style: italic;
 }
