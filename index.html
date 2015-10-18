@@ -38,6 +38,7 @@
         var $toggleRefresh = $('#toggleRefresh');
 
         var autorefresh = false;
+        var diditAutoRefresh;
 
         function loadDidits() {
           $didits.html('');
@@ -58,10 +59,12 @@
           if (!autorefresh) {
             autorefresh = true;
             $toggleRefresh.text('Auto-refresh: ON');
+            diditAutoRefresh = setInterval(loadDidits, 30000);
           }
           else {
             autorefresh = false;
-            $toggleRefresh.text('Auto-refresh: OFF')
+            $toggleRefresh.text('Auto-refresh: OFF');
+            clearInterval(diditAutoRefresh);
           }
         })
 
